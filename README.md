@@ -1,5 +1,7 @@
 # Student Registration APIs
 
+To start the application locally, follow the steps below
+
 1. Create /config/db.config.js with the following content
       ```
       const HOST = <YOUR_MYSQL_DB_HOST>
