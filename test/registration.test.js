@@ -12,21 +12,6 @@ let should = chai.should();
 chai.use(chaiHttp);
 //Our parent block
 describe('Registrations', () => {
-/*
-  * Test the /GET commonstudents route
-  */
-  describe('/GET commonstudents', () => {
-      it('it should GET all the commonstudents', (done) => {
-        chai.request(app)
-            .get('/api/commonstudents?teacher=teacher2@example.com')
-            .end((err, res) => {
-                  res.should.have.status(200);
-                  res.body.should.be.a('object');
-                  res.body.should.have.property('students')
-              done();
-            });
-      });
-  });
 
   describe('/POST register', () => {
     it('it should create the new registration', (done) => {
@@ -43,6 +28,22 @@ describe('Registrations', () => {
           .send(param)
           .end((err, res) => {
                 res.should.have.status(204);
+            done();
+          });
+    });
+  });
+
+  /*
+  * Test the /GET commonstudents route
+  */
+  describe('/GET commonstudents', () => {
+    it('it should GET all the commonstudents', (done) => {
+      chai.request(app)
+          .get('/api/commonstudents?teacher=teacherken@example.com')
+          .end((err, res) => {
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('students')
             done();
           });
     });
